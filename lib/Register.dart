@@ -3,15 +3,15 @@ import 'package:news_app/models/DatabaseHandler.dart';
 import 'package:news_app/pages/LoginPage.dart';
 import 'package:news_app/models/User.dart';
 
-class RegisterPage extends StatefulWidget {
-  const RegisterPage({super.key});
+class Register extends StatefulWidget {
+  const Register({super.key});
 
 
   @override
-  State<RegisterPage> createState() => _RegisterPageState();
+  State<Register> createState() => _RegisterState();
 }
 List<User> _allData=[];
-class _RegisterPageState extends State<RegisterPage> {
+class _RegisterState extends State<Register> {
   late DatabaseHandler handler;
   TextEditingController nameTextController = TextEditingController();
   TextEditingController usernameTextController = TextEditingController();
@@ -27,7 +27,7 @@ class _RegisterPageState extends State<RegisterPage> {
   Future<void> _addData(User user) async{
     await handler.insertUser(user);
     ScaffoldMessenger.of(context)
-        .showSnackBar(const SnackBar(content: Text("Contact added"),
+        .showSnackBar(const SnackBar(content: Text("Successfully registered"),
       backgroundColor: Colors.green,duration: Duration(seconds: 1),));
     _refreshData();
   }
@@ -47,10 +47,7 @@ class _RegisterPageState extends State<RegisterPage> {
         title: const Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-        Text("Global"),
-    Text("News",
-    style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
-    )
+        Text("Blood Donation Management System"),
     ],
     ),
     centerTitle: true,
@@ -67,6 +64,126 @@ class _RegisterPageState extends State<RegisterPage> {
             controller: nameTextController,
             decoration: const InputDecoration(
               labelText: 'Name',
+              focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue)
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.grey),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          TextFormField(
+            controller: nameTextController,
+            decoration: const InputDecoration(
+              labelText: 'Date of Birth',
+              focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue)
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.grey),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          TextFormField(
+            controller: nameTextController,
+            decoration: const InputDecoration(
+              labelText: 'Gender',
+              focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue)
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.grey),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          TextFormField(
+            controller: nameTextController,
+            decoration: const InputDecoration(
+              labelText: 'NIC',
+              focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue)
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.grey),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          TextFormField(
+            controller: nameTextController,
+            decoration: const InputDecoration(
+              labelText: 'Address',
+              focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue)
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.grey),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          TextFormField(
+            controller: nameTextController,
+            decoration: const InputDecoration(
+              labelText: 'District',
+              focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue)
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.grey),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          TextFormField(
+            controller: nameTextController,
+            decoration: const InputDecoration(
+              labelText: 'City',
+              focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue)
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.grey),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          TextFormField(
+            controller: nameTextController,
+            decoration: const InputDecoration(
+              labelText: 'Mobile No.',
+              focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue)
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.grey),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          TextFormField(
+            controller: nameTextController,
+            decoration: const InputDecoration(
+              labelText: 'Email',
               focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.blue)
               ),
@@ -97,6 +214,21 @@ class _RegisterPageState extends State<RegisterPage> {
             controller: passwordTextController,
             decoration: const InputDecoration(
               labelText: 'Password',
+              focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue)
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.grey),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          TextFormField(
+            controller: passwordTextController,
+            decoration: const InputDecoration(
+              labelText: 'Retype Password',
               focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.blue)
               ),
