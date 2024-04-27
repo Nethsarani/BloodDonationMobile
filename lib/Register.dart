@@ -150,7 +150,8 @@ class _RegisterState extends State<Register> {
           const SizedBox(
             height: 20.0,
           ),
-          TextFormField(
+          DropdownButtonFormField(
+            List<DropdownMenuItem<String>>,
             controller: nameTextController,
             decoration: const InputDecoration(
               labelText: 'City',
