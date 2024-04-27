@@ -127,27 +127,6 @@ void _refreshData() async{
           style: TextStyle(color: Colors.white),
         ),
       ),
-
-        ElevatedButton(
-        onPressed: () {
-          Navigator.push(
-            context,MaterialPageRoute(
-              builder: (context) => const RegisterPage()
-          ),
-      );
-    },
-    style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.blue[600],
-          shape: BeveledRectangleBorder(
-            borderRadius: BorderRadius.circular(2),
-          ),
-        ),
-      child: const Text("Register",
-        style: TextStyle(color: Colors.white),
-      ),
-    ),
-
-
         Text(_allData.length.toString()
     )
 
