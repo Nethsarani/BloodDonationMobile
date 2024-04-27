@@ -46,10 +46,7 @@ void _refreshData() async{
         title: const Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Global"),
-            Text("News",
-              style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
-            )
+            Text("Blood Donation Management System"),
           ],
         ),
         centerTitle: true,
@@ -60,6 +57,8 @@ void _refreshData() async{
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        Text('Login', style: TextStyle(fontSize:40)),
+        Container(height:100),
       TextFormField (
       controller: userNameController,
       decoration: const InputDecoration(
