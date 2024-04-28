@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/models/Category.dart';
-import 'package:news_app/models/category_news.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+
+class Home extends StatefulWidget {
+  const Home({super.key});
 
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<Home> createState() => _HomeState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomeState extends State<Home> {
 
-  List<CategoryModel> categories = [];
   bool _loading = true;
 
   @override
   void initState() {
-    categories = getCategories();
+
     setState(() {
       _loading = false;
     });
@@ -56,16 +54,7 @@ class _HomePageState extends State<HomePage> {
                     Container(
                       width: 350,
                       margin: EdgeInsets.only(left: 30.0),
-                      child: ListView.builder(
-                          shrinkWrap: true,
-                          scrollDirection: Axis.vertical,
-                          itemCount: categories.length,
-                          itemBuilder: (context, index) {
-                            return CategoryTile(
-                              image: categories[index].image,
-                              categoryName: categories[index].categoryName,
-                            );
-                          }),
+
                     )
 
                 ]
@@ -77,49 +66,3 @@ class _HomePageState extends State<HomePage> {
 }
 
 
-class CategoryTile extends StatelessWidget {
-  final image, categoryName;
-  CategoryTile({this.categoryName, this.image});
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context)=> CategoryNews(name: categoryName)));
-      },
-      child: Container(
-        margin: EdgeInsets.only(bottom: 20),
-        child: Stack(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(6),
-              child: Image.asset(
-                image,
-                height: 100,
-                width: 350,
-                fit: BoxFit.cover,
-              ),
-            ),
-            Container(
-              height: 100,
-              width: 350,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(6),
-                color: Colors.black38,
-              ),
-              child: Center(
-                  child: Text(
-                    categoryName,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold),
-                  )),
-            ),
-
-          ],
-        ),
-      ),
-    );
-  }
-}

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/models/DatabaseHandler.dart';
-import 'package:news_app/pages/LoginPage.dart';
-import 'package:news_app/models/User.dart';
+import 'package:blood_donation_management_system/User.dart';
+import 'package:blood_donation_management_system/DatabaseHandler.dart';
+import 'package:blood_donation_management_system/Login.dart';
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -25,7 +25,7 @@ class _RegisterState extends State<Register> {
   }
 
   Future<void> _addData(User user) async{
-    await handler.insertUser(user);
+    await handler.insertUser(user as List<User>);
     ScaffoldMessenger.of(context)
         .showSnackBar(const SnackBar(content: Text("Successfully registered"),
       backgroundColor: Colors.green,duration: Duration(seconds: 1),));
@@ -151,8 +151,6 @@ class _RegisterState extends State<Register> {
             height: 20.0,
           ),
           DropdownButtonFormField(
-            List<DropdownMenuItem<String>>,
-            controller: nameTextController,
             decoration: const InputDecoration(
               labelText: 'City',
               focusedBorder: OutlineInputBorder(
@@ -161,7 +159,8 @@ class _RegisterState extends State<Register> {
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.grey),
               ),
-            ),
+            ), items: [DropdownMenuItem(child: Text('a')),],
+            onChanged: (value) {  },
           ),
           const SizedBox(
             height: 20.0,
@@ -259,7 +258,7 @@ class _RegisterState extends State<Register> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const LoginPage(title: "title")),
+                      builder: (context) => const Login(title: "title")),
                 );
               },
               style: ElevatedButton.styleFrom(

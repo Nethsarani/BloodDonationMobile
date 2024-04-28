@@ -1,3 +1,6 @@
+import 'package:blood_donation_management_system/Home.dart';
+import 'package:blood_donation_management_system/Login.dart';
+import 'package:blood_donation_management_system/Register.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -69,14 +72,30 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void login(){
+    Navigator.push(
+      context,MaterialPageRoute(
+        builder: (context) => const Login(title: 'title')
+    ),
+    );
 
   }
 
   void register(){
+    Navigator.push(
+      context,MaterialPageRoute(
+        builder: (context) => const Register()
+    ),
+    );
 
   }
 
   void guestlog(){
+    Navigator.push(
+      context,MaterialPageRoute(
+        builder: (context) => const Home()
+    ),
+    );
+
 
   }
 
