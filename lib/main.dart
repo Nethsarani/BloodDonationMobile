@@ -2,6 +2,8 @@ import 'package:blood_donation_management_system/Home.dart';
 import 'package:blood_donation_management_system/Login.dart';
 import 'package:blood_donation_management_system/Register.dart';
 import 'package:flutter/material.dart';
+import 'package:csharp_rpc/csharp_rpc.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -77,6 +79,11 @@ class _MyHomePageState extends State<MyHomePage> {
         builder: (context) => const Login(title: 'title')
     ),
     );
+    var pathToCsharpExecutableFile = "E:\ESOFT N\Topup(Degree)\IP\New folder\BloodDonationManamentSystem\BloodDonationManamentSystem\obj\Debug\BloodDonationManamentSystem.exe";
+
+    CsharpRpc csharpRpc = await CsharpRpc(pathToCsharpExecutableFile).start();
+
+    var currentDateTime = await csharpRpc.invoke(method: "GetCurrentDateTime");
 
   }
 
