@@ -39,6 +39,8 @@ dependencies:
   path: ^1.8.3
   mssql_connection: ^1.1.3
   csharp_rpc: ^0.0.7
+  sql_conn: ^0.0.3
+  connect_to_sql_server_directly: ^0.0.1
 
 dev_dependencies:
   flutter_test:

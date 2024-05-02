@@ -2,19 +2,55 @@ import 'package:sqflite/sqflite.dart';
 import 'package:mssql_connection/mssql_connection.dart';
 import	'package:path/path.dart';
 import	'package:blood_donation_management_system/User.dart';
+import 'package:sql_conn/sql_conn.dart';
+import 'package:connect_to_sql_server_directly/connect_to_sql_server_directly.dart';
 
 class	DatabaseHandler	{
   MssqlConnection mssqlConnection = MssqlConnection.getInstance();
-
-  Future<void> init() async{
-    bool isConnected = await mssqlConnection.connect(
-      ip: '212.104.228.18',
-      port: '1433',
+  final _connectToSqlServerDirectlyPlugin = ConnectToSqlServerDirectly();
+  Future<bool> init() async{
+    /*bool isConnected = await SqlConn.connect(
+      ip: '158.69.241.120',
+      //ip: r'sql.bsite.net\MSSQL2016',
+      port: '139',
       databaseName: 'nethsarani_BloodSystem',
       username: 'nethsarani_BloodSystem',
       password: 'neth1234',
-      timeoutInSeconds: 15,
+      //timeoutInSeconds: 30,
     );
+*/
+    //_connectToSqlServerDirectlyPlugin.initializeConnection('158.69.241.120', 'nethsarani_BloodSystem', 'nethsarani_BloodSystem', 'neth1234', instance: r'sql.bsite.net\MSSQL2016');
+return true;
+    //return isConnected;
+  }
+  Future <String> Login(String username, String password) async
+  {
+    String command = "Select * From [DonorTable] Where Username='check1' and Password='pass1'";
+    String result=await mssqlConnection.getData(command);
+    return result;
+    /*
+    Donor temp = null;
+    while (reader.Read())
+    {
+      temp = new Donor();
+      temp.ID = reader.GetInt32(0);
+      temp.Name = reader.GetString(1);
+      temp.Gender = reader.GetString(2);
+      temp.NIC = reader.GetString(3);
+      string xml1 = reader.GetString(4);
+      temp.Location= (Location)xmlToObject<Location>(xml1);
+      temp.DOB=DateTime.Parse(reader.GetString(5));
+      temp.ContactNo = reader.GetString(6);
+      temp.Email = reader.GetString(7);
+      temp.BloodType = reader.GetString(8);
+      temp.health=(HealthCondition)xmlToObject<HealthCondition>(reader.GetString(9));
+      temp.Username = reader.GetString(10);
+      temp.Password = reader.GetString(11);
+    }
+    con.Close();
+    return temp;
+    */
+
   }
 
   Future<void> retrieve() async{
